@@ -46,7 +46,7 @@ namespace Repository.Services
 
             Dependencies.FileSystem.CreateDirectory(targetDirectory);
 
-            await Dependencies.Downloader.DownloadFileAsync(DownloadUrls.Arcade, zipFilePath);
+            await Dependencies.Downloader.DownloadFileAsync(settings.RepoZipFileAddress, zipFilePath);
 
             await Dependencies.Expander.ExpandZipFileAsync(zipFilePath, targetDirectory);
 

@@ -42,5 +42,7 @@ namespace Repository.Services
         /// Gets the TargetFramework.
         /// </summary>
         string TargetFramework { get; }
+
+        string RepoZipFileAddress { get; }
     }
 }

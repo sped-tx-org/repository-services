@@ -35,6 +35,24 @@ namespace Repository.Services
                 outputPath,
                 rootNamespace,
                 targetFramework,
+                DownloadUrls.Arcade,
+                projects);
+        }
+
+        public static IRepositorySettings Settings(string repositoryName,
+            string solutionName,
+            string outputPath,
+            string rootNamespace,
+            string targetFramework,
+            string repoZipFileAddress,
+            IEnumerable<IRepositoryProject> projects)
+        {
+            return new RepositorySettings(repositoryName,
+                solutionName,
+                outputPath,
+                rootNamespace,
+                targetFramework,
+                repoZipFileAddress,
                 projects);
         }
 

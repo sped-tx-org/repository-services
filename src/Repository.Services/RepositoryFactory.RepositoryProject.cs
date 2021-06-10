@@ -11,9 +11,6 @@ namespace Repository.Services
     /// </summary>
     public static partial class RepositoryFactory
     {
-        /// <summary>
-        /// Defines the <see cref="RepositoryProject" />.
-        /// </summary>
         private class RepositoryProject : IRepositoryProject
         {
             /// <summary>
@@ -23,12 +20,13 @@ namespace Repository.Services
             /// <param name="rootNamespace">The rootNamespace<see cref="string"/>.</param>
             /// <param name="targetFramework">The targetFramework<see cref="string"/>.</param>
             /// <param name="outputType">The outputType<see cref="string"/>.</param>
-            public RepositoryProject(string projectName, string rootNamespace, string targetFramework, string outputType)
+            public RepositoryProject(string projectName, string rootNamespace, string targetFramework, string outputType, ProjectType projectType = ProjectType.Default)
             {
                 ProjectName = projectName;
                 RootNamespace = rootNamespace;
                 TargetFramework = targetFramework;
                 OutputType = outputType;
+                ProjectType = projectType;
             }
 
             /// <summary>
@@ -50,6 +48,11 @@ namespace Repository.Services
             /// Gets the TargetFramework.
             /// </summary>
             public string TargetFramework { get; }
+
+            /// <summary>
+            /// The ProjectType
+            /// </summary>
+            public ProjectType ProjectType { get; }
         }
     }
 }

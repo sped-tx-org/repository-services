@@ -30,5 +30,10 @@ namespace Repository.Services
         /// Gets the TargetFramework.
         /// </summary>
         string TargetFramework { get; }
+
+        /// <summary>
+        /// Gets the ProjectType.
+        /// </summary>
+        ProjectType ProjectType { get; }
     }
 }
