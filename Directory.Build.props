@@ -20,9 +20,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GitHubOrganization>sped-mobi</GitHubOrganization>
+    <GitHubOrganization>sped-tx.net</GitHubOrganization>
     <GitHubRepositoryBranch>master</GitHubRepositoryBranch>
-    <GitHubRepositoryName>openapi-codegen</GitHubRepositoryName>
+    <GitHubRepositoryName>repository-services</GitHubRepositoryName>
     <GitHubBaseRepositoryUrl>https://github.com/$(GitHubOrganization)/$(GitHubRepositoryName)</GitHubBaseRepositoryUrl>
     <GitHubRepositoryUrl>$(GitHubBaseRepositoryUrl).git</GitHubRepositoryUrl>
     <GitHubPackageProjectUrl>$(GitHubBaseRepositoryUrl)/tree/$(GitHubRepositoryBranch)</GitHubPackageProjectUrl>
