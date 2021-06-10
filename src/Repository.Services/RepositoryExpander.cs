@@ -16,7 +16,7 @@ namespace Repository.Services
     /// <summary>
     /// Defines the <see cref="RepositoryExpander" />.
     /// </summary>
-    internal class RepositoryExpander : IRepositoryExpander
+    public class RepositoryExpander : IRepositoryExpander
     {
         /// <summary>
         /// Defines the _fileSystem.

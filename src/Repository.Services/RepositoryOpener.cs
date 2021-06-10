@@ -12,7 +12,7 @@ namespace Repository.Services
     /// <summary>
     /// Defines the <see cref="RepositoryOpener" />.
     /// </summary>
-    internal class RepositoryOpener : IRepositoryOpener
+    public class RepositoryOpener : IRepositoryOpener
     {
         /// <summary>
         /// The CollapseSolutionAsync.

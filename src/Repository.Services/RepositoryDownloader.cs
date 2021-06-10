@@ -13,7 +13,7 @@ namespace Repository.Services
     /// <summary>
     /// Defines the <see cref="RepositoryDownloader" />.
     /// </summary>
-    internal class RepositoryDownloader : IRepositoryDownloader
+    public class RepositoryDownloader : IRepositoryDownloader
     {
         /// <summary>
         /// The DownloadFileAsync.

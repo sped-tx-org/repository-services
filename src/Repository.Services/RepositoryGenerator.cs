@@ -15,7 +15,7 @@ namespace Repository.Services
     /// <summary>
     /// Defines the <see cref="RepositoryGenerator" />.
     /// </summary>
-    internal class RepositoryGenerator : IRepositoryGenerator
+    public class RepositoryGenerator : IRepositoryGenerator
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryGenerator"/> class.
@@ -67,6 +67,8 @@ namespace Repository.Services
             solutionFile.Save(solutionFilePath);
 
             await Dependencies.Opener.OpenRepositoryAsync(solutionFilePath);
+
+            await Dependencies.Opener.CollapseSolutionAsync();
         }
 
         /// <summary>

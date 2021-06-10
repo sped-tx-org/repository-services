@@ -14,7 +14,7 @@ namespace Repository.Services
     /// <summary>
     /// Defines the <see cref="RepositoryFileSystem" />.
     /// </summary>
-    internal class RepositoryFileSystem : IRepositoryFileSystem
+    public class RepositoryFileSystem : IRepositoryFileSystem
     {
         /// <summary>
         /// The CopyDirectory.
