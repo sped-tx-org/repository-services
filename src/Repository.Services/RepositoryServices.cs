@@ -14,9 +14,9 @@ namespace Repository.Services
     /// </summary>
     public static class RepositoryServices
     {
-        public static IServiceProvider DefaultProvider =>
-            DefaultCollection.BuildServiceProvider();
-
+        /// <summary>
+        /// Gets the DefaultCollection.
+        /// </summary>
         public static IServiceCollection DefaultCollection
         {
             get
@@ -33,17 +33,20 @@ namespace Repository.Services
         }
 
         /// <summary>
-        /// The GetService.
+        /// Gets the DefaultProvider.
         /// </summary>
-        /// <typeparam name="TService">.</typeparam>
-        /// <returns>The <see cref="TService"/>.</returns>
-        public static TService GetService<TService>() where TService: class
+        public static IServiceProvider DefaultProvider =>
+            DefaultCollection.BuildServiceProvider();
+
+        /// <summary>
+        /// Gets a service of type <typeparamref name="TService"/>. The <typeparamref name="TService"/> must be an interface.
+        /// </summary>
+        /// <typeparam name="TService">The type of service to get</typeparam>
+        /// <returns>The <typeparamref name="TService"/> or <c>null</c></returns>
+        public static TService GetService<TService>() where TService : class
         {
             var retVal = DefaultProvider.GetService<TService>();
             return retVal;
         }
     }
-
-
-    
 }

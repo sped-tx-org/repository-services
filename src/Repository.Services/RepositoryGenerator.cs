@@ -1,5 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// -----------------------------------------------------------------------
+// <copyright file="RepositoryGenerator.cs" company="sped-tx.net">
+//     Copyright © 2021 sped-tx.net. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,17 +12,31 @@ using Repository.Services.MSBuild;
 
 namespace Repository.Services
 {
-
+    /// <summary>
+    /// Defines the <see cref="RepositoryGenerator" />.
+    /// </summary>
     internal class RepositoryGenerator : IRepositoryGenerator
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RepositoryGenerator"/> class.
+        /// </summary>
+        /// <param name="dependencies">The dependencies<see cref="RepositoryDependencies"/>.</param>
         public RepositoryGenerator(RepositoryDependencies dependencies)
         {
             Dependencies = dependencies;
         }
 
+        /// <summary>
+        /// Gets the Dependencies.
+        /// </summary>
         public RepositoryDependencies Dependencies { get; }
 
-
+        /// <summary>
+        /// The CreateRepositoryAsync.
+        /// </summary>
+        /// <param name="settings">The settings<see cref="IRepositorySettings"/>.</param>
+        /// <param name="cancellationToken">The cancellationToken<see cref="CancellationToken"/>.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         public async Task CreateRepositoryAsync(IRepositorySettings settings, CancellationToken cancellationToken = default)
         {
             string zipFileName = Guid.NewGuid().ToString("N");
@@ -48,11 +67,13 @@ namespace Repository.Services
             solutionFile.Save(solutionFilePath);
 
             await Dependencies.Opener.OpenRepositoryAsync(solutionFilePath);
-
         }
 
-        
-
+        /// <summary>
+        /// The CreateProjectDirectory.
+        /// </summary>
+        /// <param name="settings">The settings<see cref="IRepositorySettings"/>.</param>
+        /// <param name="project">The project<see cref="IRepositoryProject"/>.</param>
         private void CreateProjectDirectory(IRepositorySettings settings, IRepositoryProject project)
         {
             var root = ProjectFileFactory.Create(project);
@@ -61,44 +82,5 @@ namespace Repository.Services
             Dependencies.FileSystem.CreateDirectory(newProjectDirectory);
             root.Save(newProjectFilePath);
         }
-
-        //private void CreateProjectDirectory(IRepositorySettings settings, IRepositoryProject project)
-        //{
-        //    var replacements = RepositoryFactory.CreateReplacementsDictionary(settings);
-        //    var arcadeRepoDirectory = Path.Combine(settings.OutputPath, settings.RepositoryName, "src\\ArcadeRepo");
-        //    var newProjectDirectory = Path.Combine(settings.OutputPath, settings.RepositoryName, $"src\\{project.ProjectName}");
-
-        //    Dependencies.FileSystem.CopyDirectory(arcadeRepoDirectory, newProjectDirectory);
-
-        //    var oldProjectFilePath = Path.Combine(newProjectDirectory, "ArcadeRepo.csproj");
-        //    var newProjectFilePath = Path.Combine(newProjectDirectory, $"{project.ProjectName}.csproj");
-
-        //    File.Move(oldProjectFilePath, newProjectFilePath);
-
-        //    var file = new FileInfo(newProjectFilePath);
-
-        //    Dependencies.Replacer.ExecuteReplacements(file, replacements);
-
-        //}
-
-        //private void RenameSolutionFile(IRepositorySettings settings, Dictionary<string, string> replacements)
-        //{
-        //    string targetDirectory = Path.Combine(settings.OutputPath, settings.RepositoryName);
-        //    string solutionFilePath = Path.Combine(targetDirectory, $"{settings.SolutionName}.sln");
-        //    foreach (var file in Dependencies.FileSystem.GetFiles(targetDirectory))
-        //    {
-                
-        //        switch (file.Name)
-        //        {
-        //            case "ArcadeRepo.sln":
-        //                {
-        //                    Dependencies.Replacer.ExecuteReplacements(file, replacements);
-        //                    File.Move(file.FullName, solutionFilePath);
-        //                    break;
-        //                }
-
-        //        }
-        //    }
-        //}
     }
 }

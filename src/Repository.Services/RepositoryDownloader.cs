@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// -----------------------------------------------------------------------
+// <copyright file="RepositoryDownloader.cs" company="sped-tx.net">
+//     Copyright © 2021 sped-tx.net. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Services
 {
-
+    /// <summary>
+    /// Defines the <see cref="RepositoryDownloader" />.
+    /// </summary>
     internal class RepositoryDownloader : IRepositoryDownloader
     {
+        /// <summary>
+        /// The DownloadFileAsync.
+        /// </summary>
+        /// <param name="address">The address<see cref="string"/>.</param>
+        /// <param name="outputFile">The outputFile<see cref="string"/>.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         public async Task DownloadFileAsync(string address, string outputFile)
         {
             WebClient client = new WebClient();

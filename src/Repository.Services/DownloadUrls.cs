@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// -----------------------------------------------------------------------
+// <copyright file="DownloadUrls.cs" company="sped-tx.net">
+//     Copyright © 2021 sped-tx.net. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Repository.Services
 {
-
+    /// <summary>
+    /// Defines the <see cref="DownloadUrls" />.
+    /// </summary>
     internal static class DownloadUrls
     {
         /// <summary>
